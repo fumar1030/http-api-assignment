@@ -5,7 +5,25 @@
   <link rel="stylesheet" type="text/css" href="/style.css">
   
   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sendButton = document.getElementById('send');
+      const pageSelect = document.getElementById('page');
+      const typeSelect = document.getElementById('type');
+      const contentSection = document.getElementById('content');
 
+      sendButton.addEventListener('click', async () => {
+        const selectedPage = pageSelect.value;
+        const selectedType = typeSelect.value;
+
+        const response = await fetch(selectedPage, {
+            method: 'GET',
+            headers: { 'Accept': selectedType }
+          });
+
+          const responseText = await response.text();
+          contentSection.innerHTML = `<pre>${responseText}</pre>`;
+      });
+    });
   </script>
 </head>
 <body>
