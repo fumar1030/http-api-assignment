@@ -2,7 +2,7 @@ const http = require('http');
 const htmlHandler = require('./htmlResponses');
 const jsonHandler = require('./jsonResponses');
 
-var port = process.env.port || process.getActiveResourcesInfo.NODE_PORT || 3000;
+var port = process.env.PORT || process.getActiveResourcesInfo.NODE_PORT || 3000;
 
 const urlStruct = {
     '/': htmlHandler.getIndex,
